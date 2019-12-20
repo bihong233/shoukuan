@@ -1,0 +1,235 @@
+/*******************
+ Box Sizing
+ *******************/
+html {
+  box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+/*******************
+   Core body defaults
+   @see https://hankchizljaw.com/wrote/a-modern-css-reset/
+   *******************/
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed; }
+
+/****************************
+   Generic Margins and Paddings
+   ****************************/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+figcaption,
+hr,
+dl,
+dd {
+  margin: 0;
+  padding: 0; }
+
+/*******************
+   Lists
+   *******************/
+ul {
+  list-style: none; }
+
+/*******************
+   Forms and buttons
+   *******************/
+input,
+textarea,
+select,
+button {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit; }
+
+/* I usually expand input and textarea to full-width */
+input[type="text"],
+textarea {
+  width: 100%; }
+
+/* More friendly border */
+input,
+textarea,
+button {
+  border: 1px solid gray; }
+
+/* Some defaults for one-liner buttons */
+button {
+  padding: 0.75em 1em;
+  line-height: inherit;
+  border-radius: 0;
+  background-color: transparent; }
+
+button * {
+  pointer-events: none; }
+
+/***********************************
+   Easy responsive for media elements
+   ***********************************/
+img,
+svg,
+iframe,
+video,
+object,
+embed {
+  display: block;
+  max-width: 100%; }
+
+/*******************
+   Useful table styles
+   *******************/
+table {
+  table-layout: fixed;
+  width: 100%; }
+
+/*******************
+   The hidden attribute
+   *******************/
+[hidden] {
+  opacity: 0;
+  visibility: hidden; }
+
+/*******************
+   Noscript
+   *******************/
+noscript {
+  display: block;
+  margin-bottom: 1em;
+  margin-top: 1em; }
+
+/*******************
+   Tabindex
+   *******************/
+[tabindex="-1"] {
+  outline: none !important; }
+
+/*******************
+   Remove animations and transitions
+   @see https://hankchizljaw.com/wrote/a-modern-css-reset/
+   *******************/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+
+/*******************
+   * Screen-ready only class to hide content visually
+   * Solution by Joe Watkins.
+   * @see https://zellwk.com/blog/hide-content-accessibly/
+   *******************/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap; }
+
+body {
+  font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666; }
+
+html .wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url(./images/bg.png) no-repeat center 0;
+  background-size: 375px auto;
+  z-index: -1;
+  opacity: 0.3; }
+
+html .header {
+  border-bottom: 1px solid #F00; }
+
+html .overview {
+  display: none; }
+
+.wrapper {
+  position: relative;
+  max-width: 420px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; }
+  .wrapper .mainview {
+    flex: 1; }
+
+.header {
+  height: 55px;
+  background: #ffb646;
+  padding: 10px; }
+  .header h2 {
+    color: #FFF; }
+
+.overview {
+  background: #f3f4f5;
+  padding: 10px;
+  position: relative; }
+  .overview .bg {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 30%;
+    background: #ffb646; }
+  .overview .rounded {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden; }
+  .overview .up {
+    background: #FFF;
+    padding: 10px 15px;
+    color: #999; }
+    .overview .up .row1 {
+      display: flex; }
+      .overview .up .row1 span:first-child {
+        flex: 1; }
+    .overview .up .row2 {
+      font-size: 36px;
+      color: #fe9b3e;
+      padding: 3px 0; }
+    .overview .up .row3 {
+      display: flex; }
+      .overview .up .row3 span {
+        flex: 2; }
+        .overview .up .row3 span:last-child {
+          flex: 1; }
+  .overview .down {
+    background: #fe9b3e;
+    color: #FFF;
+    display: flex;
+    text-align: center;
+    padding: 5px 0; }
+    .overview .down b {
+      display: block; }
+    .overview .down div {
+      flex: 1; }
