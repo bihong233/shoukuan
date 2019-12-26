@@ -89,7 +89,7 @@ iframe,
 video,
 object,
 embed {
-  display: block;
+  display: inline-block;
   max-width: 100%; }
 
 /*******************
@@ -168,8 +168,17 @@ html .wrapper::before {
 html .header {
   border-bottom: 1px solid #F00; }
 
-html .overview {
-  display: none; }
+a {
+  text-align: center;
+  text-decoration: none; }
+
+i {
+  display: inline-block;
+  background-size: 100% auto; }
+
+.Flex_ul {
+  list-style: none;
+  display: flex; }
 
 .wrapper {
   position: relative;
@@ -180,7 +189,9 @@ html .overview {
   flex-direction: column;
   box-sizing: border-box; }
   .wrapper .mainview {
-    flex: 1; }
+    flex: 1;
+    overflow-y: scroll;
+    background: #f3f4f5; }
 
 .header {
   height: 55px;
@@ -213,6 +224,18 @@ html .overview {
       display: flex; }
       .overview .up .row1 span:first-child {
         flex: 1; }
+      .overview .up .row1 span:last-child {
+        color: #488600; }
+      .overview .up .row1 i {
+        width: 15px;
+        height: 15px;
+        vertical-align: -2px; }
+      .overview .up .row1 i.health {
+        background-image: url(./images/jiankang@2x.png);
+        margin: 0 0 0 7px; }
+      .overview .up .row1 i.refresh {
+        background-image: url(./images/refresh@2x.png);
+        margin: 0 7px 0 0; }
     .overview .up .row2 {
       font-size: 36px;
       color: #fe9b3e;
@@ -220,16 +243,160 @@ html .overview {
     .overview .up .row3 {
       display: flex; }
       .overview .up .row3 span {
-        flex: 2; }
-        .overview .up .row3 span:last-child {
-          flex: 1; }
-  .overview .down {
-    background: #fe9b3e;
-    color: #FFF;
+        flex: 2;
+        line-height: 27px; }
+    .overview .up a {
+      display: inline-block;
+      width: 65px;
+      line-height: 27px;
+      color: #fff;
+      background-color: #fd6447;
+      border-radius: 4px; }
+
+.down {
+  background: #fe9b3e;
+  color: #FFF;
+  text-align: center;
+  padding: 5px 5px; }
+  .down ul li {
+    flex: 1;
+    position: relative; }
+    .down ul li::after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 25px;
+      background: #fff;
+      right: 0;
+      top: 50%;
+      margin-top: -12px; }
+    .down ul li:last-child::after {
+      display: none; }
+  .down b {
+    display: block; }
+  .down div {
+    flex: 1; }
+
+.action {
+  height: 72px;
+  padding: 10px; }
+  .action ul li {
+    flex: 1; }
+
+.action a {
+  color: #6b6b6b;
+  display: block; }
+  .action a i {
+    width: 30px;
+    height: 30px; }
+  .action a i.cz {
+    background-image: url(./images/cz@2x.png); }
+  .action a i.withdraw {
+    background-image: url(./images/tk@2x.png); }
+  .action a i.tjskm {
+    background-image: url(./images/tjskm@2x.png); }
+  .action a i.yqhy {
+    background-image: url(./images/yqhy@2x.png); }
+  .action a b {
+    display: block; }
+
+.broadcast {
+  background: #fff;
+  width: 100%;
+  height: 32.5px;
+  display: flex;
+  font-size: 15px; }
+  .broadcast :first-child {
+    width: 48px; }
+    .broadcast :first-child i {
+      width: 20px;
+      height: 20px;
+      margin: 6px 12px; }
+    .broadcast :first-child .gonggao {
+      background-image: url(./images/gonggao@2x.png); }
+  .broadcast .roll-note {
+    flex: 1; }
+    .broadcast .roll-note span {
+      text-align: center;
+      line-height: 32.5px; }
+  .broadcast :last-child a {
+    display: block;
+    width: 48px;
+    color: #ffb646;
+    line-height: 32.5px;
+    margin: 0 6px; }
+
+.information {
+  width: 100%;
+  height: 280px;
+  position: relative;
+  padding: 10px; }
+  .information .banner {
+    border-radius: 4px; }
+  .information .list {
+    height: 140px;
     display: flex;
-    text-align: center;
-    padding: 5px 0; }
-    .overview .down b {
-      display: block; }
-    .overview .down div {
+    margin: 5px 0; }
+    .information .list .list-item .list-div {
+      width: 110px;
+      border-radius: 7px;
+      overflow: hidden; }
+      .information .list .list-item .list-div h4 {
+        width: 110px;
+        height: 30px;
+        color: #fff;
+        background: #ffb646;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle; }
+      .information .list .list-item .list-div div {
+        background: #fff;
+        padding: 2px 7px 10px;
+        margin: 0 auto; }
+        .information .list .list-item .list-div div li {
+          padding: 3px 0; }
+          .information .list .list-item .list-div div li .danger {
+            color: #fd6447; }
+          .information .list .list-item .list-div div li .success {
+            color: #488600; }
+    .information .list .list-side {
+      width: 110px; }
+    .information .list .list-middle {
       flex: 1; }
+      .information .list .list-middle .list-div {
+        margin: 0 auto; }
+
+.tabbar {
+  background: #fff;
+  padding: 5px;
+  border-top: .5px solid #ccc; }
+  .tabbar ul li {
+    flex: 1; }
+  .tabbar ul a {
+    display: block;
+    color: #666; }
+    .tabbar ul a i {
+      width: 25px;
+      height: 25px; }
+    .tabbar ul a i.home {
+      background-image: url(./images/home-normal@2x.png); }
+    .tabbar ul a i.message {
+      background-image: url(./images/message-normal@2x.png);
+      position: relative; }
+    .tabbar ul a i.team {
+      background-image: url(./images/team-normal@2x.png); }
+    .tabbar ul a i.mine {
+      background-image: url(./images/mine-normal@2x.png); }
+    .tabbar ul a span {
+      display: block; }
+    .tabbar ul a .dot {
+      position: absolute;
+      top: -2px;
+      right: -10px;
+      color: #fff;
+      background-color: #fd6447;
+      width: 14px;
+      height: 14px;
+      border-radius: 7px;
+      line-height: 12px;
+      text-align: center; }

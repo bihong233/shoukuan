@@ -2,6 +2,7 @@
 
 $bgclr: #ffb646;
 $bggrey: #f3f4f5;
+$bgred:#fd6447;
 
 body {
     // scss comment
@@ -28,8 +29,29 @@ html { // delete me!
         border-bottom: 1px solid #F00;
     }
     .overview {
-        display: none;
+        //display: none;
     }
+    .action {
+        //display: none;
+    }
+    .broadcast {
+        //display: none;
+    }
+}
+
+a {
+    text-align: center;
+    text-decoration: none;
+}
+
+i {
+    display: inline-block;
+    background-size: 100% auto;
+}
+
+.Flex_ul {
+    list-style: none;
+    display: flex;
 }
 
 .wrapper {
@@ -43,6 +65,8 @@ html { // delete me!
 
     .mainview {
         flex: 1;
+        overflow-y: scroll;
+        background: $bggrey;
     }
 }
 
@@ -81,6 +105,23 @@ html { // delete me!
             display: flex;
             span:first-child {
                 flex: 1;
+            } 
+            span:last-child {
+                color:#488600;
+            }
+            i {
+                width: 15px;
+                height: 15px;
+
+                vertical-align: -2px;
+            }
+            i.health {
+                background-image: url(./images/jiankang@2x.png);
+                margin: 0 0 0 7px;
+            }
+            i.refresh {
+                background-image: url(./images/refresh@2x.png);
+                margin: 0 7px 0 0;
             }
         }
         .row2 {
@@ -92,10 +133,16 @@ html { // delete me!
             display: flex;
             span {
                 flex: 2;
-
-                &:last-child {
-                    flex: 1;
+                line-height: 27px;
                 }
+            }
+            a {
+                display: inline-block;
+                width: 65px;
+                line-height: 27px;
+                color: #fff;
+                background-color: $bgred;
+                border-radius: 4px;
             }
         }
     }
@@ -103,9 +150,30 @@ html { // delete me!
     .down {
         background: #fe9b3e;
         color: #FFF;
-        display: flex;
         text-align: center;
-        padding: 5px 0;
+        padding: 5px 5px;
+        ul {
+            li {
+                flex: 1;
+                position: relative;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 1px;
+                    height: 25px;
+                    background: #fff;
+                    right: 0;
+                    top: 50%;
+                    margin-top: -12px;
+                }
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
         b {
             display: block;
         }
@@ -114,6 +182,176 @@ html { // delete me!
             flex: 1;
         }
     }
+
+.action{
+    height: 72px;
+    padding:10px;
+    ul{
+        li {
+            flex: 1;
+        }
+    }
 }
+    .action a{
+      color:#6b6b6b;
+      display: block;
+      i {
+          width: 30px;
+          height: 30px;
+      }
+      i.cz {
+          background-image: url(./images/cz@2x.png);
+      }
+      i.withdraw {
+          background-image: url(./images/tk@2x.png);
+      }
+      i.tjskm{
+          background-image: url(./images/tjskm@2x.png);
+      }
+      i.yqhy {
+          background-image: url(./images/yqhy@2x.png);
+      }
+      b {
+          display: block;
+      }
+    }
 
+.broadcast {
+    background: #fff;
+    width: 100%;
+    height: 32.5px;
+    display: flex;
+    font-size: 15px;
+    :first-child {
+        width: 48px;
+        i {
+            width: 20px;
+            height: 20px;
+            margin: 6px 12px;
+        }
+        .gonggao {
+            background-image: url(./images/gonggao@2x.png);
+        }
+    }
+    .roll-note {
+        flex: 1;
+        span {
+            text-align: center;
+            line-height: 32.5px;
+        }
+    }
+    :last-child {
+        a {
+            display: block;
+            width: 48px;
+            color: $bgclr;
+            line-height: 32.5px;
+            margin: 0 6px;
+        }
+    }
+}    
 
+.information {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    padding: 10px;
+    .banner {
+        border-radius: 4px;
+    }
+    .list {
+        height: 140px;
+        display: flex;
+        margin: 5px 0;
+        .list-item {
+            .list-div {
+                width: 110px;
+                border-radius: 7px;
+                overflow: hidden;
+                h4 {
+                    width: 110px;
+                    height: 30px;
+                    color: #fff;
+                    background: #ffb646;
+                    text-align: center;
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+                div {
+                    background: #fff;
+                    padding: 2px 7px 10px;
+                    margin: 0 auto;
+                    li {
+                        padding: 3px 0;
+                        
+                        .danger {
+                            color: $bgred;
+                        }
+                        .success {
+                            color: #488600;
+                        }
+                    }   
+                }
+            }
+        }
+        .list-side {
+            width: 110px;
+        }
+        .list-middle {
+            flex: 1;
+            .list-div {
+                margin: 0 auto;
+            }
+        }
+    }
+}    
+
+.tabbar {
+    background: #fff;
+    padding: 5px;
+    border-top: .5px solid #ccc;
+    ul {
+        //justify-content: space-around;
+        li {
+            flex: 1;
+        }
+        a {
+            display: block;
+            color: #666;
+            i {
+                width: 25px;
+                height: 25px;
+            }
+            i.home {
+                background-image: url(./images/home-normal@2x.png);
+            }
+            i.message {
+                background-image: url(./images/message-normal@2x.png);
+                position: relative;
+            }
+            i.team {
+                background-image: url(./images/team-normal@2x.png);
+            }
+            i.mine {
+                background-image: url(./images/mine-normal@2x.png);
+            }
+
+            span {
+                display: block;
+            }
+
+            .dot {
+                position: absolute;
+                top: -2px;
+                right: -10px;
+                color: #fff;
+                background-color: $bgred;
+                width: 14px;
+                height: 14px;
+                border-radius: 7px;
+                line-height: 12px;
+                text-align: center;
+            }
+        }
+    }   
+} 

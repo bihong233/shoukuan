@@ -99,7 +99,7 @@
   video,
   object,
   embed {
-    display: block;
+    display: inline-block;
     max-width: 100%;
   }
   
