@@ -166,7 +166,8 @@ html .wrapper::before {
   opacity: 0.3; }
 
 html .header {
-  border-bottom: 1px solid #F00; }
+  border-bottom: 1px solid #F00;
+  font-size: 1em; }
 
 a {
   text-align: center;
