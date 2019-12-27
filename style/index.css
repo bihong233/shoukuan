@@ -149,9 +149,18 @@ noscript {
 
 body {
   font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
-  font-size: 13px;
+  font-size: 0.9rem;
   line-height: 1.5;
   color: #666; }
+
+html {
+  font-size: 12px; }
+  @media screen and (min-width: 320px) {
+    html {
+      font-size: calc(4vw - 0.8px); } }
+  @media screen and (min-width: 420px) {
+    html {
+      font-size: 16px; } }
 
 html .wrapper::before {
   content: '';
@@ -195,15 +204,15 @@ i {
     background: #f3f4f5; }
 
 .header {
-  height: 55px;
+  height: 3.87rem;
   background: #ffb646;
-  padding: 10px; }
+  padding: .7rem; }
   .header h2 {
     color: #FFF; }
 
 .overview {
   background: #f3f4f5;
-  padding: 10px;
+  padding: .7rem;
   position: relative; }
   .overview .bg {
     content: '';
@@ -214,12 +223,12 @@ i {
     bottom: 30%;
     background: #ffb646; }
   .overview .rounded {
-    border-radius: 10px;
+    border-radius: 1em;
     position: relative;
     overflow: hidden; }
   .overview .up {
     background: #FFF;
-    padding: 10px 15px;
+    padding: 1em 1rem;
     color: #999; }
     .overview .up .row1 {
       display: flex; }
@@ -228,37 +237,37 @@ i {
       .overview .up .row1 span:last-child {
         color: #488600; }
       .overview .up .row1 i {
-        width: 15px;
-        height: 15px;
-        vertical-align: -2px; }
+        width: 1rem;
+        height: 1rem;
+        vertical-align: -.2em; }
       .overview .up .row1 i.health {
         background-image: url(./images/jiankang@2x.png);
-        margin: 0 0 0 7px; }
+        margin: 0 0 0 .5rem; }
       .overview .up .row1 i.refresh {
         background-image: url(./images/refresh@2x.png);
-        margin: 0 7px 0 0; }
+        margin: 0 .5rem 0 0; }
     .overview .up .row2 {
-      font-size: 36px;
+      font-size: 2.5rem;
       color: #fe9b3e;
-      padding: 3px 0; }
+      padding: .3em 0; }
     .overview .up .row3 {
       display: flex; }
       .overview .up .row3 span {
         flex: 2;
-        line-height: 27px; }
+        line-height: 2rem; }
     .overview .up a {
       display: inline-block;
-      width: 65px;
-      line-height: 27px;
+      width: 4.6rem;
+      line-height: 2rem;
       color: #fff;
       background-color: #fd6447;
-      border-radius: 4px; }
+      border-radius: .4em; }
 
 .down {
   background: #fe9b3e;
   color: #FFF;
   text-align: center;
-  padding: 5px 5px; }
+  padding: .5em .5em; }
   .down ul li {
     flex: 1;
     position: relative; }
@@ -266,11 +275,11 @@ i {
       content: '';
       position: absolute;
       width: 1px;
-      height: 25px;
+      height: 5em;
       background: #fff;
       right: 0;
       top: 50%;
-      margin-top: -12px; }
+      margin-top: -2.4em; }
     .down ul li:last-child::after {
       display: none; }
   .down b {
@@ -279,8 +288,8 @@ i {
     flex: 1; }
 
 .action {
-  height: 72px;
-  padding: 10px; }
+  height: 5rem;
+  padding: 1em; }
   .action ul li {
     flex: 1; }
 
@@ -288,8 +297,8 @@ i {
   color: #6b6b6b;
   display: block; }
   .action a i {
-    width: 30px;
-    height: 30px; }
+    width: 2rem;
+    height: 2rem; }
   .action a i.cz {
     background-image: url(./images/cz@2x.png); }
   .action a i.withdraw {
@@ -304,47 +313,48 @@ i {
 .broadcast {
   background: #fff;
   width: 100%;
-  height: 32.5px;
   display: flex;
-  font-size: 15px; }
+  font-size: 1rem;
+  height: 2.3em; }
   .broadcast :first-child {
-    width: 48px; }
+    width: 3.4em; }
     .broadcast :first-child i {
-      width: 20px;
-      height: 20px;
-      margin: 6px 12px; }
+      width: 1.3em;
+      height: 1.3em;
+      margin: .42em .85em; }
     .broadcast :first-child .gonggao {
       background-image: url(./images/gonggao@2x.png); }
   .broadcast .roll-note {
     flex: 1; }
     .broadcast .roll-note span {
       text-align: center;
-      line-height: 32.5px; }
+      line-height: 2.3em; }
   .broadcast :last-child a {
     display: block;
-    width: 48px;
+    width: 3.4em;
     color: #ffb646;
-    line-height: 32.5px;
-    margin: 0 6px; }
+    line-height: 2.3em;
+    margin: 0 .42em; }
 
 .information {
   width: 100%;
-  height: 280px;
+  height: 20rem;
   position: relative;
-  padding: 10px; }
+  padding: .7rem; }
   .information .banner {
-    border-radius: 4px; }
+    border-radius: .4em; }
   .information .list {
-    height: 140px;
+    height: 14em;
     display: flex;
-    margin: 5px 0; }
+    margin: .5em 0; }
     .information .list .list-item .list-div {
-      width: 110px;
-      border-radius: 7px;
-      overflow: hidden; }
+      width: 8.6em;
+      border-radius: .55em;
+      overflow: hidden;
+      font-size: 1em; }
       .information .list .list-item .list-div h4 {
-        width: 110px;
-        height: 30px;
+        width: 8.6em;
+        height: 2.3em;
         color: #fff;
         background: #ffb646;
         text-align: center;
@@ -352,16 +362,16 @@ i {
         vertical-align: middle; }
       .information .list .list-item .list-div div {
         background: #fff;
-        padding: 2px 7px 10px;
+        padding: .15em .55em .78em;
         margin: 0 auto; }
         .information .list .list-item .list-div div li {
-          padding: 3px 0; }
+          padding: .23em 0; }
           .information .list .list-item .list-div div li .danger {
             color: #fd6447; }
           .information .list .list-item .list-div div li .success {
             color: #488600; }
     .information .list .list-side {
-      width: 110px; }
+      width: 8.6em; }
     .information .list .list-middle {
       flex: 1; }
       .information .list .list-middle .list-div {
@@ -369,7 +379,7 @@ i {
 
 .tabbar {
   background: #fff;
-  padding: 5px;
+  padding: .4em;
   border-top: .5px solid #ccc; }
   .tabbar ul li {
     flex: 1; }
@@ -377,8 +387,8 @@ i {
     display: block;
     color: #666; }
     .tabbar ul a i {
-      width: 25px;
-      height: 25px; }
+      width: 2em;
+      height: 2em; }
     .tabbar ul a i.home {
       background-image: url(./images/home-normal@2x.png); }
     .tabbar ul a i.message {
@@ -392,12 +402,12 @@ i {
       display: block; }
     .tabbar ul a .dot {
       position: absolute;
-      top: -2px;
-      right: -10px;
+      top: -.15em;
+      right: -.78em;
       color: #fff;
       background-color: #fd6447;
-      width: 14px;
-      height: 14px;
-      border-radius: 7px;
-      line-height: 12px;
+      width: 1rem;
+      height: 1rem;
+      border-radius: .55em;
+      line-height: 1em;
       text-align: center; }

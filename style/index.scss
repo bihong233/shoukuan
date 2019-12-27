@@ -4,15 +4,51 @@ $bgclr: #ffb646;
 $bggrey: #f3f4f5;
 $bgred:#fd6447;
 
+// https://codepen.io/MadeByMike/pen/vNrvdZ
+@mixin interpolate($properties, $min-screen, $max-screen, $min-value, $max-value) {
+    & {
+        @each $property in $properties {
+            #{$property}: $min-value;
+        }
+
+        @media screen and (min-width: $min-screen) {
+            @each $property in $properties {
+                #{$property}: calc-interpolation($min-screen, $min-value, $max-screen, $max-value); 
+            }
+        }
+
+        @media screen and (min-width: $max-screen) {
+            @each $property in $properties {
+                #{$property}: $max-value;
+            }
+        }
+    }
+}
+
+// Requires the calc-interpolation function which can also be used independently
+
+@function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+    $a: ($max-value - $min-value) / ($max-screen - $min-screen);
+    $b: $min-value - $a * $min-screen; 
+
+    $sign: "+";
+    @if ($b < 0) {
+        $sign: "-";
+        $b: abs($b);
+    }
+    @return calc(#{$a*100}vw #{$sign} #{$b});
+}
+
 body {
     // scss comment
     font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
-    font-size: 13px;
+    font-size: 0.9rem;
     line-height: 1.5;
     color: #666;
 }
 
 html { // delete me!
+    @include interpolate(font-size, 320px, 420px, 12px, 16px);
     .wrapper {
         // sample image
         &::before { 
@@ -73,16 +109,16 @@ i {
 
 
 .header {
-    height: 55px;
+    height: 3.87rem;// 55px
     background: $bgclr;
-    padding: 10px;
+    padding: .7rem;// 10px
     h2 {
         color: #FFF;
     }
 }
 .overview {
     background: $bggrey;
-    padding: 10px;
+    padding: .7rem;// 10px
     position: relative;
 
     .bg {
@@ -93,14 +129,14 @@ i {
     }
 
     .rounded {
-        border-radius: 10px;
+        border-radius: 1em;// 10px
         position: relative;
         overflow: hidden;
     }
 
     .up {
         background: #FFF;
-        padding: 10px 15px;
+        padding: 1em 1rem;// 10px 15px
         color: #999;
         .row1 {
             display: flex;
@@ -111,39 +147,38 @@ i {
                 color:#488600;
             }
             i {
-                width: 15px;
-                height: 15px;
-
-                vertical-align: -2px;
+                width: 1rem;// 15px
+                height: 1rem;
+                vertical-align: -.2em;// 2px
             }
             i.health {
                 background-image: url(./images/jiankang@2x.png);
-                margin: 0 0 0 7px;
+                margin: 0 0 0 .5rem;// 7px
             }
             i.refresh {
                 background-image: url(./images/refresh@2x.png);
-                margin: 0 7px 0 0;
+                margin: 0 .5rem 0 0;
             }
         }
         .row2 {
-            font-size: 36px;
+            font-size: 2.5rem;// 36px
             color: #fe9b3e;
-            padding: 3px 0;
+            padding: .3em 0;//  3px
         }
         .row3 {
             display: flex;
             span {
                 flex: 2;
-                line-height: 27px;
+                line-height: 2rem;// 27px
                 }
             }
             a {
                 display: inline-block;
-                width: 65px;
-                line-height: 27px;
+                width: 4.6rem;// 65px
+                line-height: 2rem;
                 color: #fff;
                 background-color: $bgred;
-                border-radius: 4px;
+                border-radius: .4em;// 4px
             }
         }
     }
@@ -152,7 +187,7 @@ i {
         background: #fe9b3e;
         color: #FFF;
         text-align: center;
-        padding: 5px 5px;
+        padding: .5em .5em;
         ul {
             li {
                 flex: 1;
@@ -161,11 +196,11 @@ i {
                     content: '';
                     position: absolute;
                     width: 1px;
-                    height: 25px;
+                    height: 5em;// 25px
                     background: #fff;
                     right: 0;
                     top: 50%;
-                    margin-top: -12px;
+                    margin-top: -2.4em;// 12px
                 }
                 &:last-child {
                     &::after {
@@ -185,8 +220,8 @@ i {
     }
 
 .action{
-    height: 72px;
-    padding:10px;
+    height: 5rem;// 72px
+    padding: 1em;// 10px
     ul{
         li {
             flex: 1;
@@ -197,8 +232,8 @@ i {
       color:#6b6b6b;
       display: block;
       i {
-          width: 30px;
-          height: 30px;
+          width: 2rem;// 30px
+          height: 2rem;
       }
       i.cz {
           background-image: url(./images/cz@2x.png);
@@ -220,15 +255,15 @@ i {
 .broadcast {
     background: #fff;
     width: 100%;
-    height: 32.5px;
     display: flex;
-    font-size: 15px;
+    font-size: 1rem;// 15px
+    height: 2.3em;
     :first-child {
-        width: 48px;
+        width: 3.4em;// 48px
         i {
-            width: 20px;
-            height: 20px;
-            margin: 6px 12px;
+            width: 1.3em;
+            height: 1.3em;
+            margin: .42em .85em;
         }
         .gonggao {
             background-image: url(./images/gonggao@2x.png);
@@ -238,40 +273,41 @@ i {
         flex: 1;
         span {
             text-align: center;
-            line-height: 32.5px;
+            line-height: 2.3em;
         }
     }
     :last-child {
         a {
             display: block;
-            width: 48px;
+            width: 3.4em;
             color: $bgclr;
-            line-height: 32.5px;
-            margin: 0 6px;
+            line-height: 2.3em;
+            margin: 0 .42em;
         }
     }
 }    
 
 .information {
     width: 100%;
-    height: 280px;
+    height: 20rem;
     position: relative;
-    padding: 10px;
+    padding: .7rem;
     .banner {
-        border-radius: 4px;
+        border-radius: .4em;
     }
     .list {
-        height: 140px;
+        height: 14em;
         display: flex;
-        margin: 5px 0;
+        margin: .5em 0;
         .list-item {
             .list-div {
-                width: 110px;
-                border-radius: 7px;
+                width: 8.6em;
+                border-radius: .55em;
                 overflow: hidden;
+                font-size: 1em;
                 h4 {
-                    width: 110px;
-                    height: 30px;
+                    width: 8.6em;
+                    height: 2.3em;
                     color: #fff;
                     background: #ffb646;
                     text-align: center;
@@ -280,10 +316,10 @@ i {
                 }
                 div {
                     background: #fff;
-                    padding: 2px 7px 10px;
+                    padding: .15em .55em .78em;
                     margin: 0 auto;
                     li {
-                        padding: 3px 0;
+                        padding: .23em 0;
                         
                         .danger {
                             color: $bgred;
@@ -296,7 +332,7 @@ i {
             }
         }
         .list-side {
-            width: 110px;
+            width: 8.6em;
         }
         .list-middle {
             flex: 1;
@@ -309,7 +345,7 @@ i {
 
 .tabbar {
     background: #fff;
-    padding: 5px;
+    padding: .4em;
     border-top: .5px solid #ccc;
     ul {
         //justify-content: space-around;
@@ -320,8 +356,8 @@ i {
             display: block;
             color: #666;
             i {
-                width: 25px;
-                height: 25px;
+                width: 2em;
+                height: 2em;
             }
             i.home {
                 background-image: url(./images/home-normal@2x.png);
@@ -343,14 +379,14 @@ i {
 
             .dot {
                 position: absolute;
-                top: -2px;
-                right: -10px;
+                top: -.15em;
+                right: -.78em;
                 color: #fff;
                 background-color: $bgred;
-                width: 14px;
-                height: 14px;
-                border-radius: 7px;
-                line-height: 12px;
+                width: 1rem;
+                height: 1rem;
+                border-radius: .55em;
+                line-height: 1em;
                 text-align: center;
             }
         }
